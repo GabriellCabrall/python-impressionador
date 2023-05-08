@@ -46,6 +46,13 @@ class ContaCorrente:
         print('Valor, Saldo, Data e Hora')
         for transacao in self.transacoes:
             print(transacao)
+    
+    def transferir(self, valor, conta_destino):
+        self.saldo -= valor
+        self.transacoes.append((-valor, self.saldo, ContaCorrente._data_hora()))
+        conta_destino.saldo += valor
+        conta_destino.transacoes.append((valor, conta_destino.saldo, ContaCorrente._data_hora()))
+
 
 
 conta_Gabriel = ContaCorrente('Gabriel', '111.222.333-44', 1234, 34062)
@@ -55,9 +62,6 @@ conta_Gabriel.consultar_saldo()
 conta_Gabriel.depositar(10000)
 conta_Gabriel.consultar_saldo()
 
-# Sacando dinheiro da conta
-conta_Gabriel.sacar_dinheiro(1100)
-
 print('Saldo final')
 conta_Gabriel.consultar_saldo()
 
@@ -65,3 +69,14 @@ conta_Gabriel.consultar_limite_chequeespecial()
 
 print('-' * 20)
 conta_Gabriel.consultar_historico_transacoes()
+
+print('-' * 20)
+conta_Sandra = ContaCorrente('Sandra', '222.472.058.12', 55, 39202)
+
+conta_Gabriel.transferir(1000, conta_Sandra)
+
+conta_Gabriel.consultar_saldo()
+conta_Sandra.consultar_saldo()
+
+conta_Gabriel.consultar_historico_transacoes()
+conta_Sandra.consultar_historico_transacoes()
