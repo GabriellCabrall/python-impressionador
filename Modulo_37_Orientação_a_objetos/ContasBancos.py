@@ -3,6 +3,18 @@ import pytz
 
 
 class ContaCorrente:
+    """
+    Cria um objeto ContaCorrente para gerenciar as contas dos clientes
+
+    Atributos: 
+        nome (str): Nome do cliente
+        cpf (str): CPF do cliente
+        agencia: Agência responsável pela conta do cliente
+        num_conta : Número da conta do cliente
+        saldo: Saldo da conta do cliente
+        limite: Limite de cheque especial do cliente
+        transacoes: Histórico de transações do cliente
+    """
 
     @staticmethod
     def _data_hora():
