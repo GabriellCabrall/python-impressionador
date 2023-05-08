@@ -33,7 +33,7 @@ conta_Gabriel = ContaCorrente('Gabriel', '111.222.333-44', 1234, 34062)
 conta_Gabriel.consultar_saldo()
 
 # Depositando dinheiro na conta
-conta_Gabriel.depositar(10000)
+conta_Gabriel.depositar(100000)
 conta_Gabriel.consultar_saldo()
 
 # Sacando dinheiro da conta
