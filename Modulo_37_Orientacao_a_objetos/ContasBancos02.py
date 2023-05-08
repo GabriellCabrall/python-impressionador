@@ -109,3 +109,5 @@ print(conta_Gabriel._nome)
 cartao_Gabriel.senha = '124'
 print(cartao_Gabriel.senha)
 
+print(conta_Gabriel.__dict__)
+print(cartao_Gabriel.__dict__)
