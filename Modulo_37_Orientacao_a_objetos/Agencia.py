@@ -77,5 +77,5 @@ agencia_virtual.verificar_caixa()
 agencia_comum = AgenciaComum(33332222, 323422222)
 agencia_premium = AgenciaPremium(22918493, 3920000010)
 
-agencia_virtual.depositar_paypal(20000)
+agencia_virtual.sacar_paypal(20000)
 
