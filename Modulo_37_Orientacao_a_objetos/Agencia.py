@@ -33,6 +33,7 @@ class AgenciaVirtual(Agencia):
 
 
 class AgenciaComum(Agencia):
+    
     pass
 
 
