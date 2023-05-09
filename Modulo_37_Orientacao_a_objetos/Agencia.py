@@ -25,7 +25,7 @@ class Agencia:
     
     def adicionar_cliente(self, nome, cpf, patrimonio):
         self.clientes.append((nome, cpf, patrimonio))
-# ===================================================================================================
+
 
 class AgenciaVirtual(Agencia):
     
@@ -50,14 +50,14 @@ class AgenciaVirtual(Agencia):
             print('Transferência concluída\nValor do caixa: R${:,.2f}\nValor paypal:R${:,.2f}'.format(self.caixa, self.caixa_paypal))
         else:
             print('Valor de caixa do paypal insuficiente para a transferência!')
-# ===================================================================================================
+
 
 class AgenciaComum(Agencia):
     
     def __init__(self, telefone, cnpj):
         super().__init__(telefone, cnpj, numero=randint(1001, 9999))
         self.caixa = 1000000
-# ===================================================================================================
+
 
 class AgenciaPremium(Agencia):
 
@@ -65,16 +65,24 @@ class AgenciaPremium(Agencia):
         super().__init__(telefone, cnpj, numero=randint(1001, 9999))
         self.caixa = 10000000
 
+    def adicionar_cliente(self, nome, cpf, patrimonio):
+        if patrimonio >= 1000000:
+            super().adicionar_cliente(nome, cpf, patrimonio)
+        else:
+            print('Não é possível adicionar o cliente.')
+
 
 
 #Código
+if __name__ == '__main__':
+    agencia1 = Agencia(20203891, 2040281039, 3748)
 
-agencia1 = Agencia(20203891, 2040281039, 3748)
+    agencia_virtual = AgenciaVirtual('www.agenciavirtual.com', 22224444, 1921000000)
+    agencia_virtual.verificar_caixa()
 
-agencia_virtual = AgenciaVirtual('www.agenciavirtual.com', 22224444, 1921000000)
-agencia_virtual.verificar_caixa()
+    agencia_comum = AgenciaComum(33332222, 323422222)
+    agencia_premium = AgenciaPremium(22918493, 3920000010)
 
-agencia_comum = AgenciaComum(33332222, 323422222)
-agencia_premium = AgenciaPremium(22918493, 3920000010)
-
-agencia_virtual.sacar_paypal(20000)
+    agencia_virtual.depositar_paypal(20000)
+    agencia_premium.adicionar_cliente('Pedro', 74892730281, 1000000)
+    print(agencia_premium.clientes)
