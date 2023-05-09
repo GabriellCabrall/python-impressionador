@@ -38,7 +38,6 @@ class AgenciaComum(Agencia):
 
 
 class AgenciaPremium(Agencia):
-    
     pass
 
 
